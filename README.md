@@ -4,9 +4,9 @@ This guide quickly explains how to getting started with Kogito Serverless Workfl
 
 ## Prereqs
 
-1. Java SDK installed
-2. Maven installed
-3. Quarkus CLI
+1. [Java SDK installed](https://adoptopenjdk.net/)
+2. [Maven installed](https://maven.apache.org/install.html)
+3. [Quarkus CLI](https://quarkus.io/guides/cli-tooling)
 
 To edit your workflows:
 
@@ -116,7 +116,7 @@ Click on "Execute" and you should see a response similarly to this one:
 
 ### Calling the service via command line
 
-You can use an one-liner command:
+You can use an one line `curl`:
 
 ```shell
 curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"workflowdata" : {"name": "John", "language": "English"}}' http://localhost:8080/greetings

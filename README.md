@@ -142,3 +142,5 @@ You can then interact with the application the same way you did before in the pr
 
 - [Quarkus Container Images Guide](https://quarkus.io/guides/container-image)
 - [Getting Started With Quarkus](https://quarkus.io/guides/getting-started)
+- [CNCF Serverless Workflow]()
+- [Kogito Serverless Workflow](https://github.com/kiegroup/kogito-runtimes/tree/main/kogito-serverless-workflow)

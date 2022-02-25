@@ -68,15 +68,15 @@ states:
     transition: GreetPerson
   - name: GreetPerson
     type: operation
+    stateDataFilter:
+      input: |-
+       {greeting: .greeting + .name}
     actions:
       - name: greetAction
-        actionDataFilter:
-          fromStateData: |-
-            ${  { finalGreeting: (.greeting + \" \" + .name) } }
         functionRef:
           refName: greetFunction
           arguments:
-            message: ${.finalGreeting}
+            message: ${.greeting}
     end: true
 ```
 
@@ -106,10 +106,7 @@ Click on "Execute" and you should see a response similarly to this one:
 {
   "id": "c758eb9d-6242-4bda-a5f5-7f5d302943c0",
   "workflowdata": {
-    "name": "John",
-    "language": "English",
-    "greeting": "Hello from YAML Workflow, ",
-    "finalGreeting": "Hello from YAML Workflow,  John"
+    "greeting": "Hello from YAML Workflow, John",
   }
 }
 ```

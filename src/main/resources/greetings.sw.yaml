@@ -29,13 +29,13 @@ states:
     transition: GreetPerson
   - name: GreetPerson
     type: operation
+    stateDataFilter:
+      input: |-
+       {greeting: .greeting + .name}
     actions:
       - name: greetAction
-        actionDataFilter:
-          fromStateData: |-
-            ${  { finalGreeting: (.greeting + \" \" + .name) } }
         functionRef:
           refName: greetFunction
           arguments:
-            message: ${.finalGreeting}
+            message: ${.greeting}
     end: true

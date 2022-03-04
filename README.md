@@ -11,7 +11,7 @@ This guide quickly explains how to getting started with Kogito Serverless Workfl
 To edit your workflows:
 
 1. Visual Studio Code with [Red Hat Java Plugin](https://marketplace.visualstudio.com/items?itemName=redhat.java) installed
-2. [Serverless Workflow Editor](https://marketplace.visualstudio.com/items?itemName=serverlessworkflow.serverless-workflow-vscode-extension)
+2. [Serverless Workflow Editor](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-extension-serverless-workflow-editor)
 
 ## Creating the project
 

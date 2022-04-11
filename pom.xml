@@ -17,10 +17,10 @@
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <kogito.version>2.0.0-SNAPSHOT</kogito.version>
   </properties>
-    <dependencyManagement>
+  <dependencyManagement>
     <dependencies>
       <dependency>
-         <groupId>${quarkus.platform.group-id}</groupId>
+        <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>${quarkus.platform.artifact-id}</artifactId>
         <version>${quarkus.platform.version}</version>
         <type>pom</type>

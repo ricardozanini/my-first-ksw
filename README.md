@@ -133,8 +133,16 @@ You can then interact with the application the same way you did before in the pr
 Assuming you have [installed Knative locally](https://knative.dev/docs/getting-started/) on your Minikube, run:
 
 ```shell
+# Configure your docker env to push the images to the minikube registry first
 eval $(minikube -p minikube docker-env --profile knative)
 
+# rebuild the application to genereate the image in the right place
+quarkus build \
+  -Dquarkus.container-image.build=true \
+  -Dquarkus.kubernetes.deployment-target=knative \
+  -Dquarkus.container-image.group=dev.local
+
+# Install the app!
 kubectl apply -f target/kubernetes/knative.yml
 
 # You should see something like "service.serving.knative.dev/my-first-ksw created" in the terminal

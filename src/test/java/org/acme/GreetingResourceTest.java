@@ -16,20 +16,11 @@ public class GreetingResourceTest {
         given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body("{\"workflowdata\" : {\"name\" : \"John\", \"language\":\"English\"}}").when()
+                .body("{\"workflowdata\" : {\"name\" : \"John\"}}").when()
                 .post("/greetings")
                 .then()
                 .statusCode(201)
-                .body("workflowdata.greeting", is("Hello from YAML Workflow, John"));
-
-        given()
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .body("{\"workflowdata\" : {\"name\" : \"Javierito\", \"language\":\"Spanish\"}}").when()
-                .post("/greetings")
-                .then()
-                .statusCode(201)
-                .body("workflowdata.greeting", is("Saludos desde YAML Workflow, Javierito"));
+                .body("workflowdata.message", is("Hello John"));
     }
 
 }

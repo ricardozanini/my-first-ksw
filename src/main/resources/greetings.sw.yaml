@@ -1,41 +1,26 @@
+---
 id: greetings
 version: '1.0'
-name: Greeting workflow
-description: YAML based greeting workflow
-start: ChooseOnLanguage
+name: Hello Person
+start: InjectHello
 functions:
-  - name: greetFunction
-    type: custom
-    operation: sysout
+- name: printOutput
+  type: custom
+  operation: sysout
 states:
-  - name: ChooseOnLanguage
-    type: switch
-    dataConditions:
-      - condition: ${.language == "English"}
-        transition: GreetInEnglish
-      - condition: ${.language == "Spanish"}
-        transition: GreetInSpanish
-    defaultCondition:
-      transition: GreetInEnglish
-  - name: GreetInEnglish
-    type: inject
-    data:
-      greeting: 'Hello from YAML Workflow, '
-    transition: GreetPerson
-  - name: GreetInSpanish
-    type: inject
-    data:
-      greeting: 'Saludos desde YAML Workflow, '
-    transition: GreetPerson
-  - name: GreetPerson
-    type: operation
-    stateDataFilter:
-      input: |-
-       {greeting: .greeting + .name}
-    actions:
-      - name: greetAction
-        functionRef:
-          refName: greetFunction
-          arguments:
-            message: ${.greeting}
-    end: true
+- name: InjectHello
+  type: inject
+  data:
+    message: 'Hello '
+  transition: PrintMessage
+- name: PrintMessage
+  type: operation
+  actions:
+  - name: print
+    functionRef:
+      refName: printOutput
+      arguments:
+        message: "${ .message + .name }"
+  stateDataFilter:
+    output: "${ { message: (.message + .name) } }"
+  end: true
